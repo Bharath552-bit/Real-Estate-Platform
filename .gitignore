@@ -1,0 +1,26 @@
+# Ignore Python virtual environments
+backend/venv/
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Django migrations (optional: if you don't want to commit them)
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# Ignore environment variable files
+.env
+
+# Ignore local settings
+local_settings.py
+
+# Ignore node_modules (for frontend)
+frontend/node_modules/
+
+# Ignore build outputs
+frontend/.next/
+frontend/out/
