@@ -15,7 +15,7 @@ export default function EditProperty() {
   const [errorMsg, setErrorMsg] = useState("");
   // Store multiple images as an array
   const [imageURLs, setImageURLs] = useState([]);
-  // Initialize all property fields (update keys as needed)
+  // Initialize all property fields
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -139,11 +139,11 @@ export default function EditProperty() {
     }
   };
 
-  if (loading) return <div className="text-center mt-8 text-gray-700">Loading...</div>;
-  if (errorMsg) return <div className="text-center mt-8 text-red-600">{errorMsg}</div>;
+  if (loading) return <div className="mt-8 text-center text-gray-700">Loading...</div>;
+  if (errorMsg) return <div className="mt-8 text-center text-red-600">{errorMsg}</div>;
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl border border-gray-300">
+    <div className="max-w-2xl p-6 mx-auto mt-4 mb-6 bg-white border border-gray-300 rounded-lg shadow-xl">
       <AnimatePresence>
         {popup && (
           <motion.div
@@ -156,16 +156,16 @@ export default function EditProperty() {
           </motion.div>
         )}
       </AnimatePresence>
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">Edit Property</h2>
+      <h2 className="mb-6 text-3xl font-bold text-center text-gray-900">Edit Property</h2>
       <CloudinaryUploadWidget onUploadSuccess={handleUploadSuccess} />
       {imageURLs.length > 0 && (
-        <div className="mt-4 flex space-x-2 overflow-x-auto">
+        <div className="flex mt-4 space-x-2 overflow-x-auto">
           {imageURLs.map((url, index) => (
             <div key={index} className="relative flex-shrink-0">
-              <img src={url} alt={`Uploaded ${index}`} className="w-40 h-24 object-cover rounded" />
+              <img src={url} alt={`Uploaded ${index}`} className="object-cover w-40 h-24 rounded" />
               <button
                 onClick={() => handleRemoveImage(index)}
-                className="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
+                className="absolute px-2 py-1 text-xs text-white bg-red-500 rounded-full top-1 right-1"
               >
                 ✖
               </button>
@@ -173,7 +173,7 @@ export default function EditProperty() {
           ))}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+      <form onSubmit={handleSubmit} className="pb-6 mt-4 space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <input
             type="text"
@@ -181,7 +181,7 @@ export default function EditProperty() {
             placeholder="Property Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-3 bg-gray-100 border rounded text-gray-900"
+            className="w-full p-3 text-gray-900 bg-gray-100 border rounded"
             required
           />
           <input
@@ -190,7 +190,7 @@ export default function EditProperty() {
             placeholder="Location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full p-3 bg-gray-100 border rounded text-gray-900"
+            className="w-full p-3 text-gray-900 bg-gray-100 border rounded"
             required
           />
         </div>
@@ -199,7 +199,7 @@ export default function EditProperty() {
           placeholder="Description"
           value={formData.description}
           onChange={handleChange}
-          className="w-full p-3 bg-gray-100 border rounded text-gray-900"
+          className="w-full p-3 text-gray-900 bg-gray-100 border rounded"
           required
         />
         <input
@@ -208,7 +208,7 @@ export default function EditProperty() {
           placeholder="Price"
           value={formData.price}
           onChange={handleChange}
-          className="w-full p-3 bg-gray-100 border rounded text-gray-900"
+          className="w-full p-3 text-gray-900 bg-gray-100 border rounded"
           required
         />
         <div className="grid grid-cols-2 gap-4">
@@ -216,7 +216,7 @@ export default function EditProperty() {
             name="property_type"
             value={formData.property_type}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="p-3 text-gray-900 bg-gray-100 border rounded"
           >
             <option value="apartment">Apartment</option>
             <option value="independent_house">Independent House</option>
@@ -227,7 +227,7 @@ export default function EditProperty() {
             name="sell_or_rent"
             value={formData.sell_or_rent}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="p-3 text-gray-900 bg-gray-100 border rounded"
           >
             <option value="sell">Sell</option>
             <option value="rent">Rent</option>
@@ -238,7 +238,7 @@ export default function EditProperty() {
             name="furnished_status"
             value={formData.furnished_status}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="p-3 text-gray-900 bg-gray-100 border rounded"
           >
             <option value="">Select Furnished Status</option>
             <option value="furnished">Furnished</option>
@@ -251,31 +251,35 @@ export default function EditProperty() {
             placeholder="Nearby Landmarks"
             value={formData.nearby_landmarks}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="p-3 text-gray-900 bg-gray-100 border rounded"
           />
         </div>
-        <div className="grid grid-cols-3 gap-4">
-          <input
-            type="number"
-            name="floor_number"
-            placeholder="Floor Number"
-            value={formData.floor_number}
-            onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
-          />
-          <input
-            type="number"
-            name="total_floors"
-            placeholder="Total Floors"
-            value={formData.total_floors}
-            onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
-          />
+        {(formData.property_type === "apartment" || formData.property_type === "villa") ? (
+          <div className="grid grid-cols-2 gap-4">
+            <input
+              type="number"
+              name="floor_number"
+              placeholder="Floor Number"
+              value={formData.floor_number}
+              onChange={handleChange}
+              className="p-3 text-gray-900 bg-gray-100 border rounded"
+            />
+            <input
+              type="number"
+              name="total_floors"
+              placeholder="Total Floors"
+              value={formData.total_floors}
+              onChange={handleChange}
+              className="p-3 text-gray-900 bg-gray-100 border rounded"
+            />
+          </div>
+        ) : null}
+        <div>
           <select
             name="property_age"
             value={formData.property_age}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="w-full p-3 text-gray-900 bg-gray-100 border rounded"
           >
             <option value="">Property Age</option>
             <option value="new">New</option>
@@ -290,11 +294,11 @@ export default function EditProperty() {
             placeholder="Parking Availability"
             value={formData.parking_availability}
             onChange={handleChange}
-            className="p-3 bg-gray-100 border rounded text-gray-900"
+            className="p-3 text-gray-900 bg-gray-100 border rounded"
           />
-          {/* You can add additional inputs for security_features here if needed. */}
+          {/* Additional inputs for security_features can be added here if needed */}
         </div>
-        <fieldset className="border p-4 rounded">
+        <fieldset className="p-4 border rounded">
           <legend className="font-semibold text-gray-900">Amenities</legend>
           <div className="grid grid-cols-2 gap-4">
             {propertyAmenities[formData.property_type]?.map((amenity) => (
@@ -302,7 +306,8 @@ export default function EditProperty() {
                 <input
                   type="checkbox"
                   value={amenity}
-                  onChange={(e) => handleCheckboxChange(e, "amenities")}                  className="mr-2"
+                  onChange={(e) => handleCheckboxChange(e, "amenities")}
+                  className="mr-2"
                 />
                 {amenity}
               </label>
@@ -318,4 +323,4 @@ export default function EditProperty() {
       </form>
     </div>
   );
-}
+}// edit page 

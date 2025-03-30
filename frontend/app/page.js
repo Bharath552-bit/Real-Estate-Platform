@@ -116,7 +116,7 @@ export default function Home() {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center h-screen bg-gray-200">
+      <div className="flex items-center justify-center h-screen bg-gray-200">
         <p className="text-xl font-semibold text-gray-700 animate-pulse">
           Loading properties...
         </p>
@@ -126,28 +126,32 @@ export default function Home() {
   return (
     <>
       {/* Full-width Search & Filter Bar */}
-      <div className="bg-white shadow-lg p-6 border-b border-gray-300 text-black w-full">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="w-full p-6 text-black bg-white border-b border-gray-300 shadow-lg">
+        <div className="container grid grid-cols-1 gap-4 mx-auto md:grid-cols-3">
           <input
             type="text"
             placeholder="🔍 Search by location..."
             value={locationQuery}
-            onChange={(e) => setLocationQuery(e.target.value)}
-            className="p-3 border border-gray-300 rounded-md bg-white text-black focus:ring-2 focus:ring-blue-500 w-full"
+            
+onChange={(e) => setLocationQuery(e.target.value)}
+            className="w-full p-3 text-black bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
           />
           <select
-            value={propertyType}
-            onChange={(e) => setPropertyType(e.target.value)}
-            className="p-3 border border-gray-300 rounded-md bg-white text-black focus:ring-2 focus:ring-blue-500 w-full"
-          >
-            <option value="">🏠 All Property Types</option>
-            <option value="sell">📌 Sell</option>
-            <option value="rent">🛏️ Rent</option>
+              value={propertyType}
+              onChange={(e) => setPropertyType(e.target.value)}
+              className="w-full p-3 text-black bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">🏠 All Property Types</option>
+              <option value="apartment">Apartment</option>
+              <option value="independent_house">Independent House</option>
+              <option value="villa">Villa</option>
+              <option value="land">Land</option>
           </select>
+
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="p-3 border border-gray-300 rounded-md bg-white text-black focus:ring-2 focus:ring-blue-500 w-full"
+            className="w-full p-3 text-black bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
           >
             <option value="">📊 Sort By</option>
             <option value="price_asc">⬇️ Price: Low to High</option>
@@ -157,13 +161,13 @@ export default function Home() {
       </div>
 
       {/* Main Content Section */}
-      <div className="container mx-auto p-6 bg-gray-100 min-h-screen grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="container grid min-h-screen grid-cols-1 gap-6 p-6 mx-auto bg-gray-100 md:grid-cols-4">
         {/* Left Section - Scrollable Property Listings */}
-        <div className="md:col-span-3 overflow-y-auto max-h-screen pr-4">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900 text-center">
+        <div className="max-h-screen pr-4 overflow-y-auto md:col-span-3">
+          <h1 className="mb-6 text-4xl font-bold text-center text-gray-900">
             🏡 Explore Properties
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
             {filteredProperties.map((property) => (
               <PropertyCard
                 key={property.id}
@@ -176,7 +180,7 @@ export default function Home() {
         </div>
 
         {/* Right Section - Fixed EMI Calculator */}
-        <div className="md:col-span-1 sticky top-6 h-full">
+        <div className="sticky h-full md:col-span-1 top-6">
           <EMICalculator />
         </div>
       </div>
