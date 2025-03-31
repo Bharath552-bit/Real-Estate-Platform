@@ -111,7 +111,7 @@ npm run dev
 ```bash
 cd backend
 ```
-###Create & Activate Virtual Environment:
+### Create & Activate Virtual Environment:
 ```bash
 python -m venv venv
 # Linux/Mac:
@@ -119,7 +119,7 @@ source venv/bin/activate
 # Windows:
 venv\Scripts\activate
 ```
-###Install Dependencies:
+### Install Dependencies:
 ```bash
 pip install -r requirements.txt
 ```
