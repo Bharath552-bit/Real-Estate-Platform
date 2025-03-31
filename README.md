@@ -1,4 +1,4 @@
-<img alt="PropEase - a realestate platform" src="/frontend/public/homepage.png">
+<img alt="PropEase - a realestate platform" src="/frontend/public/homepage2.png">
 
 <h1 align="center">Propease</h1>
 
