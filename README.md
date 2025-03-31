@@ -65,9 +65,9 @@ Here’s the tech stack used in this project:
 
 <img alt="Chat screen" src="/frontend/public/chat.png">
 
-### Chat screen
+### Chatroom
 
-<img alt="Chat screen" src="/frontend/public/chatroom.png">
+<img alt="Chatscreen" src="/frontend/public/chatroom.png">
 
 ### My dashboard
 
