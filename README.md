@@ -63,7 +63,7 @@ Here’s the tech stack used in this project:
 
 ### Chats
 
-<img alt="Chat screen" src="/frontend/public/chat.png">
+<img alt="Chats" src="/frontend/public/chats.png">
 
 ### Chatroom
 
