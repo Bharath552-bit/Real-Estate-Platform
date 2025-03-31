@@ -127,14 +127,14 @@ pip install -r requirements.txt
 ### Storing API key in .env file.
 
 Create a file in backend root directory of project named **.env**. And store your MySQL and cloudinary keys in it, as shown in the .env file.
-DB_NAME= "your_db_name"
-DB_USER= "your_db_user"
-DB_PASSWORD= "your_db_password"
-DB_HOST= "localhost"
-DB_PORT= "3306"
-CLOUDINARY_CLOUD_NAME= "your_cloud_name"
-CLOUDINARY_API_KEY= "your_api_key"
-CLOUDINARY_API_SECRET= "your_api_secret"
+- DB_NAME= "your_db_name"
+- DB_USER= "your_db_user"
+- DB_PASSWORD= "your_db_password"
+- DB_HOST= "localhost"
+- DB_PORT= "3306"
+- CLOUDINARY_CLOUD_NAME= "your_cloud_name"
+- CLOUDINARY_API_KEY= "your_api_key"
+- CLOUDINARY_API_SECRET= "your_api_secret"
 
 ###Migrate Database & Create Superuser:
 ###Install Dependencies:
