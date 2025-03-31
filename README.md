@@ -136,15 +136,15 @@ Create a file in backend root directory of project named **.env**. And store you
 - CLOUDINARY_API_KEY= "your_api_key"
 - CLOUDINARY_API_SECRET= "your_api_secret"
 
-###Migrate Database & Create Superuser:
-###Install Dependencies:
+### Migrate Database & Create Superuser:
+### Install Dependencies:
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
 
-###Run the Django Server:
+### Run the Django Server:
 ```bash
 python manage.py runserver
 ```
