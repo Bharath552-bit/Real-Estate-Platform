@@ -12,7 +12,6 @@
   <a href="#features"><strong>Features</strong></a> ·
   <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#running-locally"><strong>Running Locally</strong></a> ·
-  <a href="#author"><strong>Author</strong></a>
 </p>
 <br/>
 
