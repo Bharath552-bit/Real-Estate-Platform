@@ -9,9 +9,7 @@ A real estate application built with a Django backend and a Next.js frontend. Th
 - [Frontend Setup (Next.js)](#frontend-setup-nextjs)
 - [Running Both Servers](#running-both-servers)
 - [Useful Commands](#useful-commands)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+  
 
 ## Environment Setup
 
@@ -30,6 +28,8 @@ A real estate application built with a Django backend and a Next.js frontend. Th
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
+
+"BACKEND SETUP"
 
 Navigate to the Backend Directory:
 
@@ -70,7 +70,7 @@ python manage.py runserver
 
 
 
-Frontend Setup (Next.js):
+"FRONTEND SETUP":
 
 Navigate to the Frontend Directory:
 cd ../frontend
@@ -88,6 +88,49 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_UPLOAD_PRESET=your_upload_preset
 Start the Next.js Development Server:
 
+
+npm run dev
+# or
+yarn dev
+
+"RUNNING BOTH SERVERS"
+
+Open two terminal windows:
+
+In the first terminal, navigate to the backend folder and run the Django server.
+In the second terminal, navigate to the frontend folder and run the Next.js development server.
+
+Verify that both servers are running:
+
+Frontend: http://localhost:3000
+Backend: http://127.0.0.1:8000
+
+"USEFUL COMMANDS"
+Backend (Django)
+Activate Virtual Environment:
+# Linux/Mac:
+source venv/bin/activate
+# Windows:
+venv\Scripts\activate
+Install Dependencies:
+
+pip install -r requirements.txt
+Migrate Database:
+
+python manage.py migrate
+Create Superuser:
+
+python manage.py createsuperuser
+Run Server:
+
+python manage.py runserver
+Frontend (Next.js)
+Install Dependencies:
+
+npm install
+# or
+yarn install
+Start Development Server:
 
 npm run dev
 # or
