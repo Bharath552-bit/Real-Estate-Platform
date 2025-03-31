@@ -139,6 +139,7 @@ Create a file in backend root directory of project named **.env**. And store you
 ###Migrate Database & Create Superuser:
 ###Install Dependencies:
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
